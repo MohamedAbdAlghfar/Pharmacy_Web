@@ -13,17 +13,23 @@ class Pharmacy extends Model
         'buy',
         'address',
         'phone',
-        'user_id',
+        'user_id', 
     ];
 
-    public function photo() 
+    public function Photo() 
     {
         return $this->morphOne('App\Models\Photo', 'photoable');
     }
 
-    public function medicines() {
-        return $this->belongsToMany('App\Models\Medicine');
+    public function Medicines() {
+        return $this->belongsToMany('App\Models\Medicine'); 
     }
+
+    public function User()
+    {
+     return $this->belongsTo('App\Models\User');
+    }
+
 
 
 }

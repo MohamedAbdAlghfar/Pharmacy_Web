@@ -24,6 +24,11 @@ class User extends Authenticatable
         'phone',
         'role',
         'gender', 
+        'salary',
+        'age',
+        'academic_degree',
+        'address',
+
     ];
 
     /**
@@ -36,7 +41,7 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    public function photo() 
+    public function Photo() 
     {
         return $this->morphOne('App\Models\Photo', 'photoable');
     }

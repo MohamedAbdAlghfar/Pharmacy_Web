@@ -17,12 +17,14 @@ class MedicineFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
+            'name' => fake()->name(), 
             'description' => $this->faker->sentence,
             'qr_code' => $this->faker->url,
             'price' => $this->faker->randomFloat($nbMaxDecimals = 2, $min = 20, $max = 1000),
             'N_of_pieces' => $this->faker->numberBetween($min = 1, $max = 100),
             'type' => $this->faker->word,
+            'company_name' => $this->faker->word,
+            'buy' => $this->faker->numberBetween($min = 1, $max = 100),
 
 
 

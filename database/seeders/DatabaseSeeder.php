@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\Medicine;
 use App\Models\Pharmacy;
 use App\Models\Photo;
+use App\Models\Order;
+
 
 
 class DatabaseSeeder extends Seeder
@@ -31,7 +33,7 @@ class DatabaseSeeder extends Seeder
         }
 
         photo::factory(5)->create();
-
+        Order::factory(20)->create();
 
 
 
