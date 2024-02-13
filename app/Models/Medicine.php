@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Medicine extends Model
 {
     use HasFactory;
-    protected $fillable = [
+    protected $fillable = [ 
         'name',
         'description',  
         'qr_code',
@@ -16,7 +16,7 @@ class Medicine extends Model
         'N_of_pieces',
         'type',
         'company_name',
-        'buy',
+        'buy', 
     ];
 
 

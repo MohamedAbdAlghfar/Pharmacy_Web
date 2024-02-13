@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();  
             $table->string('name');
             $table->text('description');
-            $table->string('qr_code')->nullable();
+            $table->string('qr_code')->nullable()->unique();
             $table->integer('price');
             $table->integer('N_of_pieces');
             $table->string('type');
-            $table->string('company_name'); 
-            $table->integer('buy')->default(0);
+            $table->string('company_name');  
+            $table->integer('buy')->default(0); 
             $table->timestamps();
         });
     }
