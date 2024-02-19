@@ -13,10 +13,9 @@ class Medicine extends Model
         'description',  
         'qr_code',
         'price',
-        'N_of_pieces',
         'type',
         'company_name',
-        'buy', 
+        
     ];
 
 

@@ -18,8 +18,7 @@ class PharmacyFactory extends Factory
     {
         $userid = User::all()->random()->id;
         return [
-            'name' => fake()->name(),
-            'buy' => $this->faker->randomElement([2,1,3,4,0]), 
+            'name' => fake()->name(), 
             'address' => $this->faker->sentence,
             'phone' => $this->faker->phoneNumber('###-###-####'),
             'user_id' => $userid,

@@ -14,10 +14,9 @@ return new class extends Migration
         Schema::create('pharmacies', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('buy')->default(0);
             $table->string('address');
-            $table->string('phone');          
-            $table->timestamps();
+            $table->string('phone');           
+            $table->timestamps(); 
 
             $table->bigInteger('user_id')->unsigned();
 

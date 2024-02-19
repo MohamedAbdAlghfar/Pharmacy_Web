@@ -12,7 +12,7 @@ class EditMedicineController extends Controller
     public function index(Request $request, $id)
     {
         
-        $validate = $request->validate([
+        $validate = $request->validate([ 
             'name'  => 'required',
             'description'  => 'required',
             'qr_code'  => 'required',
@@ -20,13 +20,19 @@ class EditMedicineController extends Controller
             'N_of_pieces'     => 'required',
             'type' => 'required',
             'company_name'  => 'required',
-            'buy'   => 'required',
             'image'=> 'required|image',
-
+            'pharmacy_id' => 'required',
         ]);
 
         $medicine = Medicine::find($id);
         $medicine->update($request->all());
+
+        $pharmacy_id = $request->input('pharmacy_id');
+        $n_of_pieces = $request->input('N_of_pieces');
+       
+        
+        // Attach the medicine to the pharmacy with additional data
+        $medicine->Pharmacies()->syncWithoutDetaching([$pharmacy_id => ['N_of_pieces' => $n_of_pieces]]);
         
         if ($file = $request->file('image')) { 
             $filename = $file->getClientOriginalName();

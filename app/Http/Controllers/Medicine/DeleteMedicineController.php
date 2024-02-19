@@ -14,7 +14,7 @@ class DeleteMedicineController extends Controller
        
        $medicine = Medicine::find($id);
         if($medicine->Photo) {
-            $filename = $medicine->Photo->filename;
+            $filename = $medicine->Photo->filename; 
             unlink('images/'.$filename);
         }
         // delete medicine photo

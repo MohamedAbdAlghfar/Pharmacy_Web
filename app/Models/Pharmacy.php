@@ -8,12 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Pharmacy extends Model
 {
     use HasFactory;
-    protected $fillable = [
+    protected $fillable = [ 
         'name', 
-        'buy',
         'address',
         'phone',
-        'user_id', 
+        'user_id',  
     ];
 
     public function Photo() 
@@ -30,6 +29,9 @@ class Pharmacy extends Model
      return $this->belongsTo('App\Models\User');
     }
 
-
+    public function Orders()
+    {
+        return $this->hasMany('App\Models\Order');
+    }
 
 }

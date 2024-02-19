@@ -18,15 +18,24 @@ class CreateMedicineController extends Controller
             'description' => 'required',  
             'qr_code' => 'required',    
             'price' => 'required',
-            'N_of_pieces' => 'required',
+            'N_of_pieces' => 'required', 
             'type' => 'required',
             'company_name' => 'required',
             'image' => 'required',
+            'pharmacy_id' => 'required',
 
                  ]; 
         $this->validate($request, $rules);
         $medicine = Medicine::create($request->all());
         $medicine->save();
+     // Get pharmacy ID and additional data
+     $pharmacy_id = $request->input('pharmacy_id');
+     $n_of_pieces = $request->input('N_of_pieces');
+    
+     
+     // Attach the medicine to the pharmacy with additional data
+     $medicine->Pharmacies()->attach($pharmacy_id, ['N_of_pieces' => $n_of_pieces]);
+     
         if($medicine) {
             
             if($file = $request->file('image')) {
