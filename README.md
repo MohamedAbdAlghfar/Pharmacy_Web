@@ -9,6 +9,12 @@
   ```plaintext
   email: User's email
   password: User's password
+  status: success
+message: user logged in successfully
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+user: User object
+error: invalid_credentials
+
 ### 2. Logout
 
 - **URL:** `/auth/logout`
