@@ -46,7 +46,6 @@
     "message": "user doesn't logged out"
   }
   ```
-
 ### 3. Register
 
 - **URL:** `/auth/register`
@@ -54,16 +53,19 @@
 - **Description:** Register a new user.
 - **Request Body:**
   ```plaintext
-name: User's name
-email: User's email
-age: User's age
-address: User's address
-gender: User's gender
-phone: User's phone number
-password: User's password
-password_confirmation: User's password confirmation
-academic_degree: User's academic degree
-image: User's image (file)
+  {
+    "name": "User's name",
+    "email": "User's email",
+    "age": "User's age",
+    "address": "User's address (optional)",
+    "gender": "User's gender",
+    "phone": "User's phone number",
+    "password": "User's password",
+    "password_confirmation": "User's password confirmation",
+    "academic_degree": "User's academic degree",
+    "image": "User's image (file)"
+  }
+
 
 - **Response:**
 - Success (Status Code: 200 OK):
