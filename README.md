@@ -113,7 +113,19 @@
   {
     "message": "medicine successfully created."
   }
-### 3. Edit Medicine
+  ### 3. Delete Medicine
+
+- **URL:** `/medicine/delete/{medicine_id}`
+- **Method:** `DELETE`
+- **Description:** Delete an existing medicine.
+- **Request Body:** None
+- **Response:**
+  ```plaintext
+  {
+    "message": "medicine successfully deleted."
+  }
+
+### 4. Edit Medicine
 
 - **URL:** `/medicine/edit/{medicine_id}`
 - **Method:** `POST`
