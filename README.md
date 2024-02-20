@@ -5,9 +5,9 @@
 - **URL:** `/auth/login`
 - **Method:** `POST`
 - **Description:** Authenticate a user.
-- **Request Body:**
-- email: User's email
-- password: User's password
+- **Request Body:** \n
+  email: User's email \n
+  password: User's password
 - **Response:**
 - Success (Status Code: 200 OK):
   ```
