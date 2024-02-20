@@ -242,6 +242,74 @@
   - **Error:** 
     - **Status Code:** `404 Not Found`
     - **Content:** JSON object with an error message indicating that no medicine was found with the specified ID.
+### ORDER ENDPOINTS
+
+**Admin Side**
+
+1. **Make Order**
+
+   - URL: `/order/make/{medicine_id}/{pharmacy_id}`
+   - Method: `POST`
+   - Description: Creates a new order for a specific medicine at a particular pharmacy.
+   - Request Body:
+     - None
+   - Response:
+     - Success: Status code `200 OK`, JSON response with a message indicating successful order creation.
+     - Error: Status code `404 Not Found` if the medicine does not exist in the pharmacy.
+
+2. **Cancel Order**
+
+   - URL: `/order/cancel/{order_id}`
+   - Method: `DELETE`
+   - Description: Cancels an existing order.
+   - Request Body:
+     - None
+   - Response:
+     - Success: Status code `200 OK`, JSON response with a message indicating successful order cancellation.
+     - Error: Status code `404 Not Found` if no order is found with the specified ID.
+
+3. **Print Order**
+
+   - URL: `/order/print/{order_id}`
+   - Method: `GET`
+   - Description: Retrieves details of a specific order by its ID.
+   - Request Body:
+     - None
+   - Response:
+     - Success: Status code `200 OK`, JSON response containing details of the order, including medicine name, price, creation date, and pharmacy name.
+     - Error: Status code `404 Not Found` if no order is found with the specified ID.
+
+**Owner Side**
+
+1. **Show All Orders**
+
+   - URL: `/order/showAll`
+   - Method: `GET`
+   - Description: Retrieves details of all orders.
+   - Request Body:
+     - None
+   - Response:
+     - Success: Status code `200 OK`, JSON response containing details of all orders, including medicine name, price, creation date, pharmacy name, and medicine photo filename.
+
+2. **Show Orders in This Day**
+
+   - URL: `/order/showToday`
+   - Method: `GET`
+   - Description: Retrieves details of orders placed on the current day.
+   - Request Body:
+     - None
+   - Response:
+     - Success: Status code `200 OK`, JSON response containing details of orders placed on the current day, including medicine name, price, creation date, and pharmacy name.
+
+3. **Show Orders in This Week**
+
+   - URL: `/order/showThisWeek`
+   - Method: `GET`
+   - Description: Retrieves details of orders placed within the current week.
+   - Request Body:
+     - None
+   - Response:
+     - Success: Status code `200 OK`, JSON response containing details of orders placed within the current week, including medicine name, price, creation date, and pharmacy name.
 
 
 
