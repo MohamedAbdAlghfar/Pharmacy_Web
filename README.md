@@ -77,7 +77,8 @@
     "user": User object
   }
   
-## Medicine Endpoints (Admin Side)
+## Medicine Endpoints 
+**Admin Side**
  1. **Attach Medicine to Pharmacy**
 
 - URL: `/medicine/attach/{medicine_id}/{pharmacy_id}`
@@ -436,7 +437,8 @@ Description: This endpoint retrieves details of a specific medicine by its ID.
       ...
     ]
   }
-## User Endpoints (Admin Side)
+## User Endpoints 
+**Admin Side**
 
  1. **View My Profile**
 
@@ -472,8 +474,8 @@ Description: This endpoint retrieves details of a specific medicine by its ID.
     "message": "your profile successfully deleted."
   }
 
-## User Endpoints (Owner Side)
-
+## User Endpoints 
+   **Owner Side**
  1. **Edit My Profile**
 
 - URL: `/user/profile/edit`
