@@ -317,7 +317,8 @@ Description: This endpoint retrieves details of a specific medicine by its ID.
     - None
 - Response:
     - Success: Status code `200 OK`, JSON response containing details of orders placed within the current week, including medicine name, price, creation date, and pharmacy name.
-## Pharmacy Endpoints (Owner Side)
+## Pharmacy Endpoints 
+**Owner Side**
 
  1. **Create Pharmacy**
 
