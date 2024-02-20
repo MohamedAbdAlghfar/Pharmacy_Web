@@ -114,7 +114,7 @@
     "message": "medicine successfully created."
   }
 
-### 4. Delete Medicine
+### 3. Delete Medicine
 
 - **URL:** `/medicine/delete/{medicine_id}`
 - **Method:** `DELETE`
