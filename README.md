@@ -52,7 +52,9 @@
 - **URL:** `/auth/register`
 - **Method:** `POST`
 - **Description:** Register a new user.
-- **Request Body:**name: User's name
+- **Request Body:**
+  ```plaintext
+name: User's name
 email: User's email
 age: User's age
 address: User's address
