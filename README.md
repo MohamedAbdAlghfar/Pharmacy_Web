@@ -228,25 +228,6 @@
   - **Error:** 
     - **Status Code:** `404 Not Found`
     - **Content:** JSON object with an error message indicating that no medicines were found within the specified range.
-
-```plaintext
-{
-GET /medicine/showAll
-[
-    {
-        "name": "Medicine Name",
-        "id": 1,
-        "filename": "medicine_photo.jpg",
-        "price": 10.99
-    },
-    {
-        "name": "Another Medicine",
-        "id": 2,
-        "filename": "medicine_photo2.jpg",
-        "price": 15.99
-    }
-]
-}
 ### 9. Show Medicine
 
 **Description:** This endpoint retrieves details of a specific medicine by its ID.
@@ -264,6 +245,7 @@ GET /medicine/showAll
 
 ```plaintext
 GET /medicine/show/{medicine_id}
+
 
 
 
