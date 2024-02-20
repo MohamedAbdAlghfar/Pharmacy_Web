@@ -265,14 +265,14 @@ Description: This endpoint retrieves details of a specific medicine by its ID.
 
 2. **Cancel Order**
 
-   - URL: `/order/cancel/{order_id}`
-   - Method: `DELETE`
-   - Description: Cancels an existing order.
-   - Request Body:
-     - None
-   - Response:
-     - Success: Status code `200 OK`, JSON response with a message indicating successful order cancellation.
-     - Error: Status code `404 Not Found` if no order is found with the specified ID.
+- URL: `/order/cancel/{order_id}`
+- Method: `DELETE`
+- Description: Cancels an existing order.
+- Request Body:
+    - None
+- Response:
+    - Success: Status code `200 OK`, JSON response with a message indicating successful order cancellation.
+    - Error: Status code `404 Not Found` if no order is found with the specified ID.
 
 3. **Print Order**
 
