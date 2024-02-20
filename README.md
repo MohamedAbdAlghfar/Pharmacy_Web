@@ -584,6 +584,25 @@ Description: This endpoint retrieves details of a specific medicine by its ID.
   {
     "message": "this user turned into OWNER successfully."
   }
+## Statistics Endpoints 
+
+**Owner Side**
+
+ 1. **Total Orders Price in This Day**
+
+- URL: `/statistics/totalOrdersPrice/day/{id}`
+- Method: `GET`
+- Description: Calculate the total price of orders made by a pharmacy on the current day.
+- Request Body: None
+- Response: Total price of orders made on the current day
+
+ 2. **Total Orders Price in This Month**
+
+- URL: `/statistics/totalOrdersPrice/month/{id}`
+- Method: `GET`
+- Description: Calculate the total price of orders made by a pharmacy in the current month.
+- Request Body: None
+- Response: Total price of orders made in the current month
 
 
 
