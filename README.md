@@ -436,6 +436,151 @@ Description: This endpoint retrieves details of a specific medicine by its ID.
       ...
     ]
   }
+## User Endpoints (Admin Side)
+
+ 1. **View My Profile**
+
+- URL: `/user/profile`
+- Method: `GET`
+- Description: Retrieve details of the currently authenticated user.
+- Request Body: None
+- Response:
+  ```plaintext
+  {
+    "id": "User's ID",
+    "name": "User's name",
+    "email": "User's email",
+    "age": "User's age",
+    "address": "User's address",
+    "phone": "User's phone number",
+    "role": "User's role",
+    "gender": "User's gender",
+    "salary": "User's salary",
+    "academic_degree": "User's academic degree",
+    "filename": "Filename of user's photo"
+  }
+
+ 2. **Delete My Profile**
+
+- URL: `/user/profile/delete`
+- Method: `DELETE`
+- Description: Delete the profile of the currently authenticated user.
+- Request Body: None
+- Response:
+  ```plaintext
+  {
+    "message": "your profile successfully deleted."
+  }
+
+## User Endpoints (Owner Side)
+
+ 1. **Edit My Profile**
+
+- URL: `/user/profile/edit`
+- Method: `POST`
+- Description: Edit the profile of the currently authenticated user.
+- Request Body:
+  ```plaintext
+  {
+    "name": "New user name",
+    "email": "New user email",
+    "age": "New user age",
+    "address": "New user address",
+    "gender": "New user gender",
+    "phone": "New user phone number",
+    "academic_degree": "New user academic degree",
+    "image": "New user image (file)"
+  }
+- Response:
+  ```plaintext
+  {
+    "message": "profile successfully updated."
+  }
+
+ 2. **View Users**
+
+- URL: `/user/viewAll`
+- Method: `GET`
+- Description: Retrieve details of all users.
+- Request Body: None
+- Response:
+  ```plaintext
+  [
+    {
+      "id": "User1's ID",
+      "name": "User1's name",
+      "email": "User1's email",
+      "age": "User1's age",
+      "address": "User1's address",
+      "phone": "User1's phone number",
+      "role": "User1's role",
+      "gender": "User1's gender",
+      "salary": "User1's salary",
+      "academic_degree": "User1's academic degree",
+      "filename": "Filename of User1's photo"
+    },
+    {
+      "id": "User2's ID",
+      "name": "User2's name",
+      "email": "User2's email",
+      "age": "User2's age",
+      "address": "User2's address",
+      "phone": "User2's phone number",
+      "role": "User2's role",
+      "gender": "User2's gender",
+      "salary": "User2's salary",
+      "academic_degree": "User2's academic degree",
+      "filename": "Filename of User2's photo"
+    },
+    ...
+  ]
+
+ 3. **Delete User**
+
+- URL: `/user/delete/{id}`
+- Method: `DELETE`
+- Description: Delete a user by ID.
+- Request Body: None
+- Response:
+  ```plaintext
+  {
+    "message": "user successfully deleted."
+  }
+
+ 4. **Edit User**
+
+- URL: `/user/edit/{id}`
+- Method: `POST`
+- Description: Edit a user by ID.
+- Request Body:
+  ```plaintext
+  {
+    "name": "New user name",
+    "email": "New user email",
+    "age": "New user age",
+    "address": "New user address",
+    "gender": "New user gender",
+    "phone": "New user phone number",
+    "academic_degree": "New user academic degree",
+    "image": "New user image (file)"
+  }
+- Response:
+  ```plaintext
+  {
+    "message": "user successfully updated."
+  }
+
+ 5. **Make User Owner**
+
+- URL: `/user/makeOwner/{id}`
+- Method: `GET`
+- Description: Make a user owner by ID.
+- Request Body: None
+- Response:
+  ```plaintext
+  {
+    "message": "this user turned into OWNER successfully."
+  }
 
 
 
