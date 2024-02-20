@@ -199,6 +199,21 @@
     },
     ...
   ]
+### 7. Get Medicine by QR Code
+
+- **URL:** `/medicine/get/{medicine_QR}`
+- **Method:** `GET`
+- **Description:** Retrieve a medicine by its QR code.
+- **Request Body:** None
+- **Response:**
+  ```plaintext
+  {
+    "name": "Medicine's name",
+    "id": "Medicine's ID",
+    "filename": "Medicine's image filename",
+    "price": "Medicine's price",
+    "N_of_pieces": "Total number of pieces across all pharmacies"
+  }
 
 
 
