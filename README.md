@@ -76,8 +76,8 @@
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
     "user": User object
   }
-  ## Medicine Endpoints (Admin Side)
-
+  
+## Medicine Endpoints (Admin Side)
 ### 1. Attach Medicine to Pharmacy
 
 - **URL:** `/medicine/attach/{medicine_id}/{pharmacy_id}`
@@ -248,7 +248,7 @@
     - **Status Code:** `404 Not Found`
     - **Content:** JSON object with an error message indicating that no medicine was found with the specified ID.
 
-### ORDER ENDPOINTS
+## ORDER ENDPOINTS
 
 **Admin Side**
 
