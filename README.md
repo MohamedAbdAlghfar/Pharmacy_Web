@@ -214,6 +214,37 @@
     "price": "Medicine's price",
     "N_of_pieces": "Total number of pieces across all pharmacies"
   }
+### 8. Show All Medicines
+
+**Description:** This endpoint retrieves all available medicines.
+
+- **URL:** `/medicine/showAll`
+- **Method:** `GET`
+- **Request Body:** None
+- **Response:**
+  - **Success:** 
+    - **Status Code:** `200 OK`
+    - **Content:** JSON array containing details of all medicines, including their names, IDs, filenames of their photos, and prices.
+  - **Error:** 
+    - **Status Code:** `404 Not Found`
+    - **Content:** JSON object with an error message indicating that no medicines were found within the specified range.
+
+```plaintext
+GET /medicine/showAll
+[
+    {
+        "name": "Medicine Name",
+        "id": 1,
+        "filename": "medicine_photo.jpg",
+        "price": 10.99
+    },
+    {
+        "name": "Another Medicine",
+        "id": 2,
+        "filename": "medicine_photo2.jpg",
+        "price": 15.99
+    }
+]
 
 
 
