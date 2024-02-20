@@ -113,7 +113,29 @@
   {
     "message": "medicine successfully created."
   }
+### 4. Edit Medicine
 
+- **URL:** `/medicine/edit/{medicine_id}`
+- **Method:** `POST`
+- **Description:** Edit an existing medicine.
+- **Request Body:**
+  ```plaintext
+  {
+    "name": "New medicine name",
+    "description": "New medicine description",
+    "qr_code": "New QR code",
+    "price": "New price",
+    "N_of_pieces": "New number of pieces",
+    "type": "New type",
+    "company_name": "New company name",
+    "image": "New image (file)",
+    "pharmacy_id": "Pharmacy ID"
+  }
+- **Response:**
+  ```plaintext
+  {
+    "message": "medicine successfully updated."
+  }
 
 
 
