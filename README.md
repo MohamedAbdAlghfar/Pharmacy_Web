@@ -316,6 +316,126 @@ Description: This endpoint retrieves details of a specific medicine by its ID.
     - None
 - Response:
     - Success: Status code `200 OK`, JSON response containing details of orders placed within the current week, including medicine name, price, creation date, and pharmacy name.
+## Pharmacy Endpoints (Owner Side)
+
+ 1. **Create Pharmacy**
+
+- URL: `/pharmacy/create`
+- Method: `POST`
+- Description: Create a new pharmacy.
+- Request Body:
+  ```plaintext
+  {
+    "name": "Pharmacy's name",
+    "address": "Pharmacy's address",
+    "phone": "Pharmacy's phone number",
+    "user_id": "Owner's user ID",
+    "image": "Pharmacy's image (file)"
+  }
+- Response:
+  ```plaintext
+  {
+    "message": "pharmacy successfully created."
+  }
+
+ 2. **Delete Pharmacy**
+
+- URL: `/pharmacy/delete/{id}`
+- Method: `DELETE`
+- Description: Delete an existing pharmacy.
+- Request Body: None
+- Response:
+  ```plaintext
+  {
+    "message": "pharmacy successfully deleted."
+  }
+
+ 3. **Edit Pharmacy**
+
+- URL: `/pharmacy/edit/{id}`
+- Method: `POST`
+- Description: Edit an existing pharmacy.
+- Request Body:
+  ```plaintext
+  {
+    "name": "New pharmacy name",
+    "address": "New pharmacy address",
+    "phone": "New pharmacy phone number",
+    "user_id": "Owner's user ID",
+    "image": "New pharmacy image (file)"
+  }
+- Response:
+  ```plaintext
+  {
+    "message": "Pharmacy successfully updated."
+  }
+
+ 4. **Show All Pharmacies**
+
+- URL: `/pharmacy/showAll`
+- Method: `GET`
+- Description: Retrieve details of all pharmacies.
+- Request Body: None
+- Response:
+  ```plaintext
+  [
+    {
+      "name": "Pharmacy1",
+      "id": "1",
+      "filename": "pharmacy1.jpg",
+      "address": "Address of Pharmacy1",
+      "phone": "Phone number of Pharmacy1"
+    },
+    {
+      "name": "Pharmacy2",
+      "id": "2",
+      "filename": "pharmacy2.jpg",
+      "address": "Address of Pharmacy2",
+      "phone": "Phone number of Pharmacy2"
+    },
+    ...
+  ]
+
+ 5. **Show Pharmacy**
+
+- URL: `/pharmacy/show/{id}`
+- Method: `GET`
+- Description: Retrieve details of a specific pharmacy by its ID.
+- Request Body: None
+- Response:
+  ```plaintext
+  {
+    "name": "Pharmacy1",
+    "id": "1",
+    "filename": "pharmacy1.jpg",
+    "address": "Address of Pharmacy1",
+    "phone": "Phone number of Pharmacy1",
+    "photo": "Filename of Pharmacy1's photo",
+    "Medicines": [
+      {
+        "name": "Medicine1",
+        "n_of_pieces": "Number of pieces of Medicine1 in Pharmacy1",
+        "buy": "Number of purchases of Medicine1 in Pharmacy1",
+        "photo": "Filename of Medicine1's photo"
+      },
+      {
+        "name": "Medicine2",
+        "n_of_pieces": "Number of pieces of Medicine2 in Pharmacy1",
+        "buy": "Number of purchases of Medicine2 in Pharmacy1",
+        "photo": "Filename of Medicine2's photo"
+      },
+      ...
+    ],
+    "Orders": [
+      {
+        "price": "Price of order1 in Pharmacy1"
+      },
+      {
+        "price": "Price of order2 in Pharmacy1"
+      },
+      ...
+    ]
+  }
 
 
 
