@@ -230,6 +230,7 @@
     - **Content:** JSON object with an error message indicating that no medicines were found within the specified range.
 
 ```plaintext
+{
 GET /medicine/showAll
 [
     {
@@ -245,6 +246,24 @@ GET /medicine/showAll
         "price": 15.99
     }
 ]
+}
+### 9. Show Medicine
+
+**Description:** This endpoint retrieves details of a specific medicine by its ID.
+
+- **URL:** `/medicine/show/{medicine_id}`
+- **Method:** `GET`
+- **Request Body:** None
+- **Response:**
+  - **Success:** 
+    - **Status Code:** `200 OK`
+    - **Content:** JSON object containing details of the medicine, including its name, ID, filename of its photo, and price.
+  - **Error:** 
+    - **Status Code:** `404 Not Found`
+    - **Content:** JSON object with an error message indicating that no medicine was found with the specified ID.
+
+```plaintext
+GET /medicine/show/{medicine_id}
 
 
 
