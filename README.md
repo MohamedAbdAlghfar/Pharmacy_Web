@@ -76,8 +76,7 @@
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
     "user": User object
   }
-  
-## Medicine Endpoints (Admin Side)
+  ## Medicine Endpoints (Admin Side)
 
 ### 1. Attach Medicine to Pharmacy
 
@@ -90,6 +89,7 @@
   {
     "message": "medicine successfully attached."
   }
+
 ### 2. Create Medicine
 
 - **URL:** `/medicine/create`
@@ -149,6 +149,7 @@
   {
     "message": "medicine successfully updated."
   }
+
 ### 5. Filter Medicine by Price Range
 
 - **URL:** `/medicine/price-range/{minPrice}/{maxPrice}`
@@ -174,6 +175,7 @@
     },
     ...
   ]
+
 ### 6. Filter Medicine by Type
 
 - **URL:** `/medicine/type/{type}`
@@ -199,6 +201,7 @@
     },
     ...
   ]
+
 ### 7. Get Medicine by QR Code
 
 - **URL:** `/medicine/get/{medicine_QR}`
@@ -214,6 +217,7 @@
     "price": "Medicine's price",
     "N_of_pieces": "Total number of pieces across all pharmacies"
   }
+
 ### 8. Show All Medicines
 
 **Description:** This endpoint retrieves all available medicines.
@@ -228,6 +232,7 @@
   - **Error:** 
     - **Status Code:** `404 Not Found`
     - **Content:** JSON object with an error message indicating that no medicines were found within the specified range.
+
 ### 9. Show Medicine
 
 **Description:** This endpoint retrieves details of a specific medicine by its ID.
@@ -242,6 +247,7 @@
   - **Error:** 
     - **Status Code:** `404 Not Found`
     - **Content:** JSON object with an error message indicating that no medicine was found with the specified ID.
+
 ### ORDER ENDPOINTS
 
 **Admin Side**
