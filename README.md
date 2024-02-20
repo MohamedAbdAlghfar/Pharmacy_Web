@@ -6,8 +6,8 @@
 - **Method:** `POST`
 - **Description:** Authenticate a user.
 - **Request Body:**
-email: User's email
-password: User's password
+- email: User's email
+- password: User's password
 - **Response:**
 - Success (Status Code: 200 OK):
   ```
@@ -51,16 +51,16 @@ password: User's password
 - **Method:** `POST`
 - **Description:** Register a new user.
 - **Request Body:**
-name: User's name
-email: User's email
-age: User's age
-address: User's address
-gender: User's gender
-phone: User's phone number
-password: User's password
-password_confirmation: User's password confirmation
-academic_degree: User's academic degree
-image: User's image (file)
+- name: User's name
+- email: User's email
+- age: User's age
+- address: User's address
+- gender: User's gender
+- phone: User's phone number
+- password: User's password
+- password_confirmation: User's password confirmation
+- academic_degree: User's academic degree
+- image: User's image (file)
 - **Response:**
 - Success (Status Code: 200 OK):
   ```
