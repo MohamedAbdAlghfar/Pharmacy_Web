@@ -243,8 +243,7 @@
     - **Status Code:** `404 Not Found`
     - **Content:** JSON object with an error message indicating that no medicine was found with the specified ID.
 
-```plaintext
-GET /medicine/show/{medicine_id}
+
 
 
 
