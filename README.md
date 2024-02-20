@@ -233,7 +233,7 @@
     - **Status Code:** `404 Not Found`
     - **Content:** JSON object with an error message indicating that no medicines were found within the specified range.
 
-### 9. Show Medicine
+#### 9. Show Medicine
 
 **Description:** This endpoint retrieves details of a specific medicine by its ID.
 
