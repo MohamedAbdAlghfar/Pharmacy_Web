@@ -149,6 +149,31 @@
   {
     "message": "medicine successfully updated."
   }
+### 5. Filter Medicine by Price Range
+
+- **URL:** `/medicine/price-range/{minPrice}/{maxPrice}`
+- **Method:** `GET`
+- **Description:** Filter medicines within a specified price range.
+- **Request Body:** None
+- **Response:**
+  ```plaintext
+  [
+    {
+      "name": "Medicine's name",
+      "id": "Medicine's ID",
+      "filename": "Medicine's image filename",
+      "price": "Medicine's price",
+      "N_of_pieces": "Total number of pieces across all pharmacies"
+    },
+    {
+      "name": "Another Medicine's name",
+      "id": "Another Medicine's ID",
+      "filename": "Another Medicine's image filename",
+      "price": "Another Medicine's price",
+      "N_of_pieces": "Total number of pieces across all pharmacies"
+    },
+    ...
+  ]
 
 
 
