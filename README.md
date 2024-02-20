@@ -76,7 +76,42 @@
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
     "user": User object
   }
-  ```
+  ## Medicine Endpoints (Admin Side)
+
+### 1. Attach Medicine to Pharmacy
+
+- **URL:** `/medicine/attach/{medicine_id}/{pharmacy_id}`
+- **Method:** `POST`
+- **Description:** Attach a medicine to a pharmacy with additional data.
+- **Request Body:** Not applicable.
+- **Response:**
+  ```plaintext
+  {
+    "message": "medicine successfully attached."
+  }
+### 2. Create Medicine
+
+- **URL:** `/medicine/create`
+- **Method:** `POST`
+- **Description:** Create a new medicine.
+- **Request Body:**
+  ```plaintext
+  {
+    "name": "Medicine's name",
+    "description": "Medicine's description",
+    "qr_code": "Medicine's QR code",
+    "price": "Medicine's price",
+    "N_of_pieces": "Number of pieces",
+    "type": "Medicine's type",
+    "company_name": "Company's name",
+    "image": "Medicine's image (file)",
+    "pharmacy_id": "Pharmacy ID"
+  }
+- **Response:**
+  ```plaintext
+  {
+    "message": "medicine successfully created."
+  }
 
 
 
