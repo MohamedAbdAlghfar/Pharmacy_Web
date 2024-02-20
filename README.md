@@ -113,7 +113,7 @@
   {
     "message": "medicine successfully created."
   }
-### 4. Edit Medicine
+### 3. Edit Medicine
 
 - **URL:** `/medicine/edit/{medicine_id}`
 - **Method:** `POST`
