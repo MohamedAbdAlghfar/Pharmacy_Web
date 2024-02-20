@@ -174,6 +174,31 @@
     },
     ...
   ]
+### 6. Filter Medicine by Type
+
+- **URL:** `/medicine/type/{type}`
+- **Method:** `GET`
+- **Description:** Filter medicines by type.
+- **Request Body:** None
+- **Response:**
+  ```plaintext
+  [
+    {
+      "name": "Medicine's name",
+      "id": "Medicine's ID",
+      "filename": "Medicine's image filename",
+      "price": "Medicine's price",
+      "N_of_pieces": "Total number of pieces across all pharmacies"
+    },
+    {
+      "name": "Another Medicine's name",
+      "id": "Another Medicine's ID",
+      "filename": "Another Medicine's image filename",
+      "price": "Another Medicine's price",
+      "N_of_pieces": "Total number of pieces across all pharmacies"
+    },
+    ...
+  ]
 
 
 
