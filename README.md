@@ -475,7 +475,7 @@ Description: This endpoint retrieves details of a specific medicine by its ID.
     "message": "your profile successfully deleted."
   }
 
-   **Owner Side**
+ **Owner Side**
  1. **Edit My Profile**
 
 - URL: `/user/profile/edit`
