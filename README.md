@@ -221,10 +221,9 @@
 
  8. **Show All Medicines**
 
-Description: This endpoint retrieves all available medicines.
-
 - URL: `/medicine/showAll`
 - Method: `GET`
+- Description: retrieves all available medicines.
 - Request Body: None
 - Response:
   - Success: 
@@ -236,10 +235,9 @@ Description: This endpoint retrieves all available medicines.
 
  9. **Show Medicine**
 
-Description: This endpoint retrieves details of a specific medicine by its ID.
-
 - URL: `/medicine/show/{medicine_id}`
 - Method: `GET`
+- Description: retrieves details of a specific medicine by its ID.
 - Request Body: None
 - Response:
   - Success: 
@@ -255,7 +253,7 @@ Description: This endpoint retrieves details of a specific medicine by its ID.
 
 1. **Make Order**
 
-- URL: `/order/make/{medicine_id}/{pharmacy_id}`
+- URL: `/order/create/{medicine_id}/{pharmacy_id}`
 - Method: `POST`
 - Description: Creates a new order for a specific medicine at a particular pharmacy.
 - Request Body:
@@ -266,7 +264,7 @@ Description: This endpoint retrieves details of a specific medicine by its ID.
 
 2. **Cancel Order**
 
-- URL: `/order/cancel/{order_id}`
+- URL: `/order/delete/{order_id}`
 - Method: `DELETE`
 - Description: Cancels an existing order.
 - Request Body:
@@ -277,7 +275,7 @@ Description: This endpoint retrieves details of a specific medicine by its ID.
 
 3. **Print Order**
 
-- URL: `/order/print/{order_id}`
+- URL: `/order/show/{order_id}`
 - Method: `GET`
 - Description: Retrieves details of a specific order by its ID.
 - Request Body:
@@ -300,7 +298,7 @@ Description: This endpoint retrieves details of a specific medicine by its ID.
 
 2. **Show Orders in This Day**
 
-- URL: `/order/showToday`
+- URL: `/order/showOrdersinthisDay`
 - Method: `GET`
 - Description: Retrieves details of orders placed on the current day.
 - Request Body:
@@ -310,7 +308,7 @@ Description: This endpoint retrieves details of a specific medicine by its ID.
 
 3. **Show Orders in This Week**
 
-- URL: `/order/showThisWeek`
+- URL: `/order/showOrdersinthisWeek`
 - Method: `GET`
 - Description: Retrieves details of orders placed within the current week.
 - Request Body:
@@ -342,7 +340,7 @@ Description: This endpoint retrieves details of a specific medicine by its ID.
 
  2. **Delete Pharmacy**
 
-- URL: `/pharmacy/delete/{id}`
+- URL: `/pharmacy/delete/{pharmacy_id}`
 - Method: `DELETE`
 - Description: Delete an existing pharmacy.
 - Request Body: None
@@ -354,7 +352,7 @@ Description: This endpoint retrieves details of a specific medicine by its ID.
 
  3. **Edit Pharmacy**
 
-- URL: `/pharmacy/edit/{id}`
+- URL: `/pharmacy/edit/{pharmacy_id}`
 - Method: `POST`
 - Description: Edit an existing pharmacy.
 - Request Body:
@@ -400,7 +398,7 @@ Description: This endpoint retrieves details of a specific medicine by its ID.
 
  5. **Show Pharmacy**
 
-- URL: `/pharmacy/show/{id}`
+- URL: `/pharmacy/show/{pharmacy_id}`
 - Method: `GET`
 - Description: Retrieve details of a specific pharmacy by its ID.
 - Request Body: None
@@ -443,7 +441,7 @@ Description: This endpoint retrieves details of a specific medicine by its ID.
 
  1. **View My Profile**
 
-- URL: `/user/profile`
+- URL: `/user/viewMyProfile`
 - Method: `GET`
 - Description: Retrieve details of the currently authenticated user.
 - Request Body: None
@@ -465,7 +463,7 @@ Description: This endpoint retrieves details of a specific medicine by its ID.
 
  2. **Delete My Profile**
 
-- URL: `/user/profile/delete`
+- URL: `/user/deleteMyProfile`
 - Method: `DELETE`
 - Description: Delete the profile of the currently authenticated user.
 - Request Body: None
@@ -478,7 +476,7 @@ Description: This endpoint retrieves details of a specific medicine by its ID.
  **Owner Side**
  1. **Edit My Profile**
 
-- URL: `/user/profile/edit`
+- URL: `/user/editMyProfile`
 - Method: `POST`
 - Description: Edit the profile of the currently authenticated user.
 - Request Body:
@@ -501,7 +499,7 @@ Description: This endpoint retrieves details of a specific medicine by its ID.
 
  2. **View Users**
 
-- URL: `/user/viewAll`
+- URL: `/user/viewUsers`
 - Method: `GET`
 - Description: Retrieve details of all users.
 - Request Body: None
@@ -539,7 +537,7 @@ Description: This endpoint retrieves details of a specific medicine by its ID.
 
  3. **Delete User**
 
-- URL: `/user/delete/{id}`
+- URL: `/user/delete/{user_id}`
 - Method: `DELETE`
 - Description: Delete a user by ID.
 - Request Body: None
@@ -551,7 +549,7 @@ Description: This endpoint retrieves details of a specific medicine by its ID.
 
  4. **Edit User**
 
-- URL: `/user/edit/{id}`
+- URL: `/user/edit/{user_id}`
 - Method: `POST`
 - Description: Edit a user by ID.
 - Request Body:
@@ -574,7 +572,7 @@ Description: This endpoint retrieves details of a specific medicine by its ID.
 
  5. **Make User Owner**
 
-- URL: `/user/makeOwner/{id}`
+- URL: `/user/MakeOwner/{user_id}`
 - Method: `GET`
 - Description: Make a user owner by ID.
 - Request Body: None
@@ -589,7 +587,7 @@ Description: This endpoint retrieves details of a specific medicine by its ID.
 
  1. **Total Orders Price in This Day**
 
-- URL: `/statistics/totalOrdersPrice/day/{id}`
+- URL: `/statistics/CountOrderPriceInDay/{pharmacy_id}`
 - Method: `GET`
 - Description: Calculate the total price of orders made by a pharmacy on the current day.
 - Request Body: None
@@ -597,7 +595,7 @@ Description: This endpoint retrieves details of a specific medicine by its ID.
 
  2. **Total Orders Price in This Month**
 
-- URL: `/statistics/totalOrdersPrice/month/{id}`
+- URL: `/statistics/CountOrderPriceInMonth/{pharmacy_id}`
 - Method: `GET`
 - Description: Calculate the total price of orders made by a pharmacy in the current month.
 - Request Body: None
