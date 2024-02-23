@@ -1,3 +1,6 @@
+# PHARMACY_WEB API Documentation
+
+The PHARMACY_WEB API provides endpoints to manage various aspects of a pharmacy management system, including authentication, medicine management, order handling, user management, pharmacy management, and statistics retrieval. This API facilitates interactions between administrators, owners, and users of the pharmacy system.
 ## Authentication Endpoints
 
  1. **Login**
