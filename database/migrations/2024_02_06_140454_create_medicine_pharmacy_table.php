@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('medicine_pharmacy', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('medicine_id')->constrained(); 
+            $table->foreignId('medicine_id')->unsigned(); 
             $table->foreignId('pharmacy_id')->constrained(); 
             $table->timestamps();
-
+            $table->foreign('medicine_id')->references('id')->on('medicines')->onDelete('cascade');
 
 
 
