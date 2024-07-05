@@ -1,66 +1,615 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# PHARMACY_WEB API Documentation
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+The PHARMACY_WEB API provides endpoints to manage various aspects of a pharmacy management system, including authentication, medicine management, order handling, user management, pharmacy management, and statistics retrieval. This API facilitates interactions between administrators, owners, and users of the pharmacy system.
+## Authentication Endpoints
 
-## About Laravel
+ 1. **Login**
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- URL: `/auth/login`
+- Method: `POST`
+- Description: Authenticate a user.
+- Request Body:
+  ```plaintext
+  email: User's email
+  password: User's password
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Response:
+- Success (Status Code: 200 OK):
+  ```
+  {
+    "status": "success",
+    "message": "user logged in successfully",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "user": User object
+  }
+  ```
+- Error (Status Code: 401 Unauthorized):
+  ```
+  {
+    "error": "invalid_credentials"
+  }
+  ```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+ 2. **Logout**
 
-## Learning Laravel
+- URL: `/auth/logout`
+- Method: `POST`
+- Description: Logout the currently authenticated user.
+- Authorization Header: `Bearer token`
+- Response:
+- Success (Status Code: 200 OK):
+  ```
+  {
+    "message": "user logged out successfully"
+  }
+  ```
+- Error (Status Code: 401 Unauthorized):
+  ```
+  {
+    "message": "user doesn't logged out"
+  }
+  ```
+ 3. **Register**
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- URL: `/auth/register`
+- Method: `POST`
+- Description: Register a new user.
+- Request Body:
+  ```plaintext
+  {
+    "name": "User's name",
+    "email": "User's email",
+    "age": "User's age",
+    "address": "User's address (optional)",
+    "gender": "User's gender",
+    "phone": "User's phone number",
+    "password": "User's password",
+    "password_confirmation": "User's password confirmation",
+    "academic_degree": "User's academic degree",
+    "image": "User's image (file)"
+  }
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Response:
+- Success (Status Code: 200 OK):
+  ```
+  {
+    "status": "success",
+    "message": "user registered successfully",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "user": User object
+  }
+  
+## Medicine Endpoints 
+**Admin Side**
+ 1. **Attach Medicine to Pharmacy**
 
-## Laravel Sponsors
+- URL: `/medicine/attach/{medicine_id}/{pharmacy_id}`
+- Method: `POST`
+- Description: Attach a medicine to a pharmacy with additional data.
+- Request Body: Not applicable.
+- Response:
+  ```plaintext
+  {
+    "message": "medicine successfully attached."
+  }
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+ 2. **Create Medicine**
 
-### Premium Partners
+- URL: `/medicine/create`
+- Method: `POST`
+- Description: Create a new medicine.
+- Request Body:
+  ```plaintext
+  {
+    "name": "Medicine's name",
+    "description": "Medicine's description",
+    "qr_code": "Medicine's QR code",
+    "price": "Medicine's price",
+    "N_of_pieces": "Number of pieces",
+    "type": "Medicine's type",
+    "company_name": "Company's name",
+    "image": "Medicine's image (file)",
+    "pharmacy_id": "Pharmacy ID"
+  }
+- Response:
+  ```plaintext
+  {
+    "message": "medicine successfully created."
+  }
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+ 3. **Delete Medicine**
 
-## Contributing
+- URL: `/medicine/delete/{medicine_id}`
+- Method: `DELETE`
+- Description: Delete an existing medicine.
+- Request Body: None
+- Response:
+  ```plaintext
+  {
+    "message": "medicine successfully deleted."
+  }
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+ 4. **Edit Medicine**
 
-## Code of Conduct
+- URL: `/medicine/edit/{medicine_id}`
+- Method: `POST`
+- Description: Edit an existing medicine.
+- Request Body:
+  ```plaintext
+  {
+    "name": "New medicine name",
+    "description": "New medicine description",
+    "qr_code": "New QR code",
+    "price": "New price",
+    "N_of_pieces": "New number of pieces",
+    "type": "New type",
+    "company_name": "New company name",
+    "image": "New image (file)",
+    "pharmacy_id": "Pharmacy ID"
+  }
+- Response:
+  ```plaintext
+  {
+    "message": "medicine successfully updated."
+  }
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+ 5. **Filter Medicine by Price Range**
 
-## Security Vulnerabilities
+- URL: `/medicine/price-range/{minPrice}/{maxPrice}`
+- Method: `GET`
+- Description: Filter medicines within a specified price range.
+- Request Body: None
+- Response:
+  ```plaintext
+  [
+    {
+      "name": "Medicine's name",
+      "id": "Medicine's ID",
+      "filename": "Medicine's image filename",
+      "price": "Medicine's price",
+      "N_of_pieces": "Total number of pieces across all pharmacies"
+    },
+    {
+      "name": "Another Medicine's name",
+      "id": "Another Medicine's ID",
+      "filename": "Another Medicine's image filename",
+      "price": "Another Medicine's price",
+      "N_of_pieces": "Total number of pieces across all pharmacies"
+    },
+    ...
+  ]
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+ 6. **Filter Medicine by Type**
 
-## License
+- URL: `/medicine/type/{type}`
+- Method: `GET`
+- Description: Filter medicines by type.
+- Request Body: None
+- Response:
+  ```plaintext
+  [
+    {
+      "name": "Medicine's name",
+      "id": "Medicine's ID",
+      "filename": "Medicine's image filename",
+      "price": "Medicine's price",
+      "N_of_pieces": "Total number of pieces across all pharmacies"
+    },
+    {
+      "name": "Another Medicine's name",
+      "id": "Another Medicine's ID",
+      "filename": "Another Medicine's image filename",
+      "price": "Another Medicine's price",
+      "N_of_pieces": "Total number of pieces across all pharmacies"
+    },
+    ...
+  ]
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+ 7. **Get Medicine by QR Code**
+
+- URL: `/medicine/get/{medicine_QR}`
+- Method: `GET`
+- Description: Retrieve a medicine by its QR code.
+- Request Body: None
+- Response:
+  ```plaintext
+  {
+    "name": "Medicine's name",
+    "id": "Medicine's ID",
+    "filename": "Medicine's image filename",
+    "price": "Medicine's price",
+    "N_of_pieces": "Total number of pieces across all pharmacies"
+  }
+
+ 8. **Show All Medicines**
+
+- URL: `/medicine/showAll`
+- Method: `GET`
+- Description: retrieves all available medicines.
+- Request Body: None
+- Response:
+  - Success: 
+    - Status Code: `200 OK`
+    - Content: JSON array containing details of all medicines, including their names, IDs, filenames of their photos, and prices.
+  - Error: 
+    - Status Code: `404 Not Found`
+    - Content: JSON object with an error message indicating that no medicines were found within the specified range.
+
+ 9. **Show Medicine**
+
+- URL: `/medicine/show/{medicine_id}`
+- Method: `GET`
+- Description: retrieves details of a specific medicine by its ID.
+- Request Body: None
+- Response:
+  - Success: 
+    - Status Code: `200 OK`
+    - Content: JSON object containing details of the medicine, including its name, ID, filename of its photo, and price.
+  - Error: 
+    - Status Code: `404 Not Found`
+    - Content: JSON object with an error message indicating that no medicine was found with the specified ID.
+
+## ORDER ENDPOINTS
+
+**Admin Side**
+
+1. **Make Order**
+
+- URL: `/order/create/{medicine_id}/{pharmacy_id}`
+- Method: `POST`
+- Description: Creates a new order for a specific medicine at a particular pharmacy.
+- Request Body:
+    - None
+- Response:
+    - Success: Status code `200 OK`, JSON response with a message indicating successful order creation.
+    - Error: Status code `404 Not Found` if the medicine does not exist in the pharmacy.
+
+2. **Cancel Order**
+
+- URL: `/order/delete/{order_id}`
+- Method: `DELETE`
+- Description: Cancels an existing order.
+- Request Body:
+    - None
+- Response:
+    - Success: Status code `200 OK`, JSON response with a message indicating successful order cancellation.
+    - Error: Status code `404 Not Found` if no order is found with the specified ID.
+
+3. **Print Order**
+
+- URL: `/order/show/{order_id}`
+- Method: `GET`
+- Description: Retrieves details of a specific order by its ID.
+- Request Body:
+    - None
+- Response:
+    - Success: Status code `200 OK`, JSON response containing details of the order, including medicine name, price, creation date, and pharmacy name.
+    - Error: Status code `404 Not Found` if no order is found with the specified ID.
+
+**Owner Side**
+
+1. **Show All Orders**
+
+- URL: `/order/showAll`
+- Method: `GET`
+- Description: Retrieves details of all orders.
+- Request Body:
+    - None
+- Response:
+    - Success: Status code `200 OK`, JSON response containing details of all orders, including medicine name, price, creation date, pharmacy name, and medicine photo filename.
+
+2. **Show Orders in This Day**
+
+- URL: `/order/showOrdersinthisDay`
+- Method: `GET`
+- Description: Retrieves details of orders placed on the current day.
+- Request Body:
+    - None
+- Response:
+    - Success: Status code `200 OK`, JSON response containing details of orders placed on the current day, including medicine name, price, creation date, and pharmacy name.
+
+3. **Show Orders in This Week**
+
+- URL: `/order/showOrdersinthisWeek`
+- Method: `GET`
+- Description: Retrieves details of orders placed within the current week.
+- Request Body:
+    - None
+- Response:
+    - Success: Status code `200 OK`, JSON response containing details of orders placed within the current week, including medicine name, price, creation date, and pharmacy name.
+## Pharmacy Endpoints 
+**Owner Side**
+
+ 1. **Create Pharmacy**
+
+- URL: `/pharmacy/create`
+- Method: `POST`
+- Description: Create a new pharmacy.
+- Request Body:
+  ```plaintext
+  {
+    "name": "Pharmacy's name",
+    "address": "Pharmacy's address",
+    "phone": "Pharmacy's phone number",
+    "user_id": "Owner's user ID",
+    "image": "Pharmacy's image (file)"
+  }
+- Response:
+  ```plaintext
+  {
+    "message": "pharmacy successfully created."
+  }
+
+ 2. **Delete Pharmacy**
+
+- URL: `/pharmacy/delete/{pharmacy_id}`
+- Method: `DELETE`
+- Description: Delete an existing pharmacy.
+- Request Body: None
+- Response:
+  ```plaintext
+  {
+    "message": "pharmacy successfully deleted."
+  }
+
+ 3. **Edit Pharmacy**
+
+- URL: `/pharmacy/edit/{pharmacy_id}`
+- Method: `POST`
+- Description: Edit an existing pharmacy.
+- Request Body:
+  ```plaintext
+  {
+    "name": "New pharmacy name",
+    "address": "New pharmacy address",
+    "phone": "New pharmacy phone number",
+    "user_id": "Owner's user ID",
+    "image": "New pharmacy image (file)"
+  }
+- Response:
+  ```plaintext
+  {
+    "message": "Pharmacy successfully updated."
+  }
+
+ 4. **Show All Pharmacies**
+
+- URL: `/pharmacy/showAll`
+- Method: `GET`
+- Description: Retrieve details of all pharmacies.
+- Request Body: None
+- Response:
+  ```plaintext
+  [
+    {
+      "name": "Pharmacy1",
+      "id": "1",
+      "filename": "pharmacy1.jpg",
+      "address": "Address of Pharmacy1",
+      "phone": "Phone number of Pharmacy1"
+    },
+    {
+      "name": "Pharmacy2",
+      "id": "2",
+      "filename": "pharmacy2.jpg",
+      "address": "Address of Pharmacy2",
+      "phone": "Phone number of Pharmacy2"
+    },
+    ...
+  ]
+
+ 5. **Show Pharmacy**
+
+- URL: `/pharmacy/show/{pharmacy_id}`
+- Method: `GET`
+- Description: Retrieve details of a specific pharmacy by its ID.
+- Request Body: None
+- Response:
+  ```plaintext
+  {
+    "name": "Pharmacy1",
+    "id": "1",
+    "filename": "pharmacy1.jpg",
+    "address": "Address of Pharmacy1",
+    "phone": "Phone number of Pharmacy1",
+    "photo": "Filename of Pharmacy1's photo",
+    "Medicines": [
+      {
+        "name": "Medicine1",
+        "n_of_pieces": "Number of pieces of Medicine1 in Pharmacy1",
+        "buy": "Number of purchases of Medicine1 in Pharmacy1",
+        "photo": "Filename of Medicine1's photo"
+      },
+      {
+        "name": "Medicine2",
+        "n_of_pieces": "Number of pieces of Medicine2 in Pharmacy1",
+        "buy": "Number of purchases of Medicine2 in Pharmacy1",
+        "photo": "Filename of Medicine2's photo"
+      },
+      ...
+    ],
+    "Orders": [
+      {
+        "price": "Price of order1 in Pharmacy1"
+      },
+      {
+        "price": "Price of order2 in Pharmacy1"
+      },
+      ...
+    ]
+  }
+## User Endpoints 
+**Admin Side**
+
+ 1. **View My Profile**
+
+- URL: `/user/viewMyProfile`
+- Method: `GET`
+- Description: Retrieve details of the currently authenticated user.
+- Request Body: None
+- Response:
+  ```plaintext
+  {
+    "id": "User's ID",
+    "name": "User's name",
+    "email": "User's email",
+    "age": "User's age",
+    "address": "User's address",
+    "phone": "User's phone number",
+    "role": "User's role",
+    "gender": "User's gender",
+    "salary": "User's salary",
+    "academic_degree": "User's academic degree",
+    "filename": "Filename of user's photo"
+  }
+
+ 2. **Delete My Profile**
+
+- URL: `/user/deleteMyProfile`
+- Method: `DELETE`
+- Description: Delete the profile of the currently authenticated user.
+- Request Body: None
+- Response:
+  ```plaintext
+  {
+    "message": "your profile successfully deleted."
+  }
+
+ **Owner Side**
+ 1. **Edit My Profile**
+
+- URL: `/user/editMyProfile`
+- Method: `POST`
+- Description: Edit the profile of the currently authenticated user.
+- Request Body:
+  ```plaintext
+  {
+    "name": "New user name",
+    "email": "New user email",
+    "age": "New user age",
+    "address": "New user address",
+    "gender": "New user gender",
+    "phone": "New user phone number",
+    "academic_degree": "New user academic degree",
+    "image": "New user image (file)"
+  }
+- Response:
+  ```plaintext
+  {
+    "message": "profile successfully updated."
+  }
+
+ 2. **View Users**
+
+- URL: `/user/viewUsers`
+- Method: `GET`
+- Description: Retrieve details of all users.
+- Request Body: None
+- Response:
+  ```plaintext
+  [
+    {
+      "id": "User1's ID",
+      "name": "User1's name",
+      "email": "User1's email",
+      "age": "User1's age",
+      "address": "User1's address",
+      "phone": "User1's phone number",
+      "role": "User1's role",
+      "gender": "User1's gender",
+      "salary": "User1's salary",
+      "academic_degree": "User1's academic degree",
+      "filename": "Filename of User1's photo"
+    },
+    {
+      "id": "User2's ID",
+      "name": "User2's name",
+      "email": "User2's email",
+      "age": "User2's age",
+      "address": "User2's address",
+      "phone": "User2's phone number",
+      "role": "User2's role",
+      "gender": "User2's gender",
+      "salary": "User2's salary",
+      "academic_degree": "User2's academic degree",
+      "filename": "Filename of User2's photo"
+    },
+    ...
+  ]
+
+ 3. **Delete User**
+
+- URL: `/user/delete/{user_id}`
+- Method: `DELETE`
+- Description: Delete a user by ID.
+- Request Body: None
+- Response:
+  ```plaintext
+  {
+    "message": "user successfully deleted."
+  }
+
+ 4. **Edit User**
+
+- URL: `/user/edit/{user_id}`
+- Method: `POST`
+- Description: Edit a user by ID.
+- Request Body:
+  ```plaintext
+  {
+    "name": "New user name",
+    "email": "New user email",
+    "age": "New user age",
+    "address": "New user address",
+    "gender": "New user gender",
+    "phone": "New user phone number",
+    "academic_degree": "New user academic degree",
+    "image": "New user image (file)"
+  }
+- Response:
+  ```plaintext
+  {
+    "message": "user successfully updated."
+  }
+
+ 5. **Make User Owner**
+
+- URL: `/user/MakeOwner/{user_id}`
+- Method: `GET`
+- Description: Make a user owner by ID.
+- Request Body: None
+- Response:
+  ```plaintext
+  {
+    "message": "this user turned into OWNER successfully."
+  }
+## Statistics Endpoints 
+
+**Owner Side**
+
+ 1. **Total Orders Price in This Day**
+
+- URL: `/statistics/CountOrderPriceInDay/{pharmacy_id}`
+- Method: `GET`
+- Description: Calculate the total price of orders made by a pharmacy on the current day.
+- Request Body: None
+- Response: Total price of orders made on the current day
+
+ 2. **Total Orders Price in This Month**
+
+- URL: `/statistics/CountOrderPriceInMonth/{pharmacy_id}`
+- Method: `GET`
+- Description: Calculate the total price of orders made by a pharmacy in the current month.
+- Request Body: None
+- Response: Total price of orders made in the current month
+
+
+
+
+
+
+
+
+
+
