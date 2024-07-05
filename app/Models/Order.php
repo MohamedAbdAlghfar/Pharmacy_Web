@@ -20,7 +20,10 @@ class Order extends Model
      return $this->belongsTo('App\Models\Medicine');
     }
 
-
+    public function Pharmacy()
+    {
+     return $this->belongsTo('App\Models\Pharmacy');
+    }
 
 
 
